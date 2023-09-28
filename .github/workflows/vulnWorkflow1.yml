@@ -1,5 +1,9 @@
 name: unsafeCheckout
-on: pull_request_target
+on:
+  pull_request_target:
+    types: edited
+  
+  workflow_dispatch:
 
 jobs:
   pr-check: 
